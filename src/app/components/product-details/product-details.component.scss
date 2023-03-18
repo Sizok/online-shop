@@ -1,0 +1,30 @@
+.container{
+  margin: 0 auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: auto;
+}
+// .mat-card{
+// }
+.mat-card-image{
+  max-width: 300px;
+  margin:0 ;
+  &:first-child{
+    margin-top: 0;
+  }
+}
+.mat-card-header{
+  margin-top: 10px;
+}
+.example-card{
+  max-width: 100%;
+  max-height: 860px;
+}
+.mat-card-actions{
+  display: flex;
+  justify-content: space-between;
+}
+

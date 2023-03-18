@@ -1,0 +1,242 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "HONEY PASSIONFRUIT",
+      "price": 600,
+      "image": "assets/images/112175144707_OF_F.jpg",
+      "details": {
+        "description": "Your favorite scents make a splash with aquatic notes of peach tea, juicy watermelon, and iridescent lotus. Pair with matching Fragrance Lotion.",
+        "features": [
+          "Type: Fruity Fresh",
+          "Notes: raspberry glisten, peach tea, pomelo drip",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      }
+    },
+    {
+      "id": 2,
+      "title": "Limited Edition Splash Fragrance Mist",
+      "price": 650,
+      "image": "assets/images/112164724517_OM_F.jpg",
+      "details": {
+        "description": "Juicy Passionfruit • Honey Nectar • Coconut Palms Juicy superfruits, meet pure honey. This is your recipe for golden, glowy skin—all year round. Bright with notes of juicy passionfruit, honey nectar, and coconut palms, this super-light, all-over fragrance mist captures the vibe of a sundrenched day—full of fresh air, tropical fruit, and golden light.",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      }
+    },
+    {
+      "id": 3,
+      "title": "COCO PEACH FRAGRANCE MIST",
+      "price": 400,
+      "image": "assets/images/112161593050_OF_F.jpg",
+      "details": {
+        "description": "Made with notes of Peach Nectar, White Freesia and Shaved Coconut this lightweight scent delivers the perfect touch of fragrance and treats your senses to a day at the beach (without having to leave the house).",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      }
+    },
+    {
+      "id": 4,
+      "title": "FRAGRANCE MIST",
+      "price": 600,
+      "image": "assets/images/112126403447_OF_F.jpg",
+      "details": {
+        "description": "One spritz of these coconut-laced scents and you’re whisked away to an island getaway—no flight required. Tropic Vanilla evokes a soft island breeze, mingling hits of citrusy lime, creamy Monoi blooms and white coconut flower with a fresh dose of chilled Vanilla. These feel-good, vacation-inspired scents are formulated with essential oils, delivering the perfect touch of fragrance.",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      }
+    },
+    {
+      "id": 5,
+      "title": "FRAGRANCE MIST",
+      "price": 650,
+      "image": "assets/images/112126403054_OF_F.jpg",
+      "details": {
+        "description": "One spritz of these coconut-laced scents and you’re whisked away to an island getaway—no flight required. Coconut Sun channels golden glow of a day at the beach, sun tan lotion and warm, sunny rays. This subtle, evocative mix of coconut and vanilla notes with uplifting ylang-ylang is warm, comforting and full of sunshine. These feel-good, vacation-inspired scents are formulated with essential oils, delivering the perfect touch of fragrance.",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      }
+    },
+    {
+      "id": 6,
+      "title": "FRAGRANCE MIST",
+      "price": 500,
+      "image": "assets/images/112126403053_OF_F.jpg",
+      "details": {
+        "description": "One spritz of these coconut-laced scents and you’re whisked away to an island getaway—no flight required. Pink Beach is pure, sun-kissed bliss. Sweet, juicy notes of papaya nectar, fresh pineapple, and coconut transport you straight to a tropical paradise. These feel-good, vacation-inspired scents are formulated with essential oils, delivering the perfect touch of fragrance.",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      }
+    },
+    {
+      "id": 7,
+      "title": "FRAGRANCE MIST",
+      "price": 700,
+      "image": "assets/images/112063292664_OF_F.jpg",
+      "details": {
+        "description": "Fresh. Dreamy. Cozy. And beyond! Mist your world with our collection of feel-good scents, formulated with Essential Oils and mood-lifting notes. Spritz yourself with a soft fragrance that evokes sipping a cool Pina Colada with a warm ocean breeze in your hair. It’s the perfect light scent that mingles with your natural skin. Wear on its own or as a base for layering.",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      }
+    },
+    {
+      "id": 8,
+      "title": "HONEY BODY MIST WITH ESSENTIAL OILS",
+      "price": 500,
+      "image": "assets/images/111773440799_OF_F.jpg",
+      "details": {
+        "description": "Inspired by our best-selling Honey Body Care—made by bees. This liquid gold Honey scent is both addicting and comforting, formulated with essential oils and mood-lifting notes like Honey Drizzle, Purple Dahlia and Whipped Vanilla. ",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      }
+    },
+    {
+      "title": "Boomshell",
+      "price": "350",
+      "image": "assets/images/111773440799_OF_F.jpg",
+      "details": {
+        "description": "some discription",
+        "features": "asasd",
+        "volume": "500",
+        "amount": "2",
+        "affiliation_id": "1"
+      },
+      "id": 11
+    },
+    {
+      "id": 12,
+      "title": "asdasd",
+      "price": "121",
+      "image": "assets/images/111773440799_OF_F.jpg",
+      "details": {
+        "description": "asdasd",
+        "features": "asd",
+        "volume": "12",
+        "amount": "12",
+        "affiliation_id": "1212"
+      }
+    }
+  ],
+  "basket": [
+    {
+      "id": 1,
+      "title": "HONEY PASSIONFRUIT",
+      "price": 600,
+      "image": "assets/images/112175144707_OF_F.jpg",
+      "details": {
+        "description": "Your favorite scents make a splash with aquatic notes of peach tea, juicy watermelon, and iridescent lotus. Pair with matching Fragrance Lotion.",
+        "features": [
+          "Type: Fruity Fresh",
+          "Notes: raspberry glisten, peach tea, pomelo drip",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      },
+      "quantity": 6
+    },
+    {
+      "id": 3,
+      "title": "COCO PEACH FRAGRANCE MIST",
+      "price": 400,
+      "image": "assets/images/112161593050_OF_F.jpg",
+      "details": {
+        "description": "Made with notes of Peach Nectar, White Freesia and Shaved Coconut this lightweight scent delivers the perfect touch of fragrance and treats your senses to a day at the beach (without having to leave the house).",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      },
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "title": "Limited Edition Splash Fragrance Mist",
+      "price": 650,
+      "image": "assets/images/112164724517_OM_F.jpg",
+      "details": {
+        "description": "Juicy Passionfruit • Honey Nectar • Coconut Palms Juicy superfruits, meet pure honey. This is your recipe for golden, glowy skin—all year round. Bright with notes of juicy passionfruit, honey nectar, and coconut palms, this super-light, all-over fragrance mist captures the vibe of a sundrenched day—full of fresh air, tropical fruit, and golden light.",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      },
+      "quantity": 4
+    }
+  ]
+}
