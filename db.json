@@ -197,7 +197,7 @@
         "amount": 1,
         "affiliation_id": 1
       },
-      "quantity": 6
+      "quantity": 8
     },
     {
       "id": 3,
@@ -237,6 +237,45 @@
         "affiliation_id": 1
       },
       "quantity": 4
+    },
+    {
+      "id": 6,
+      "title": "FRAGRANCE MIST",
+      "price": 500,
+      "image": "assets/images/112126403053_OF_F.jpg",
+      "details": {
+        "description": "One spritz of these coconut-laced scents and you’re whisked away to an island getaway—no flight required. Pink Beach is pure, sun-kissed bliss. Sweet, juicy notes of papaya nectar, fresh pineapple, and coconut transport you straight to a tropical paradise. These feel-good, vacation-inspired scents are formulated with essential oils, delivering the perfect touch of fragrance.",
+        "features": [
+          "DYE-FREE",
+          "AGAINST ANIMAL TESTING",
+          "WITH ESSENTIAL OILS",
+          "25% RECYCLED PLASTIC BOTTLE",
+          "26628534"
+        ],
+        "volume": 500,
+        "amount": 1,
+        "affiliation_id": 1
+      },
+      "quantity": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Elvis",
+      "email": "admin@example.com",
+      "phone": "+380860001122",
+      "password": "admin123",
+      "_token": "123123123123asdasd",
+      "own_goods_id": [],
+      "basket": [],
+      "purchase_history": [
+        {
+          "data": "2022/02/03",
+          "products_id": []
+        }
+      ]
     }
   ]
 }

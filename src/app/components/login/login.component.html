@@ -1,0 +1,43 @@
+<div class="container">
+  <mat-card class="login-wrapper">
+    <mat-card-header>
+      <h2 class="login-header">ВХІД</h2>
+      <p class="login-description">Будьласка введіть ваші логін та пароль</p>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput
+                placeholder="pat@example.com" formControlName="email"/>
+          <mat-error *ngIf="loginForm.controls['email'].errors?.['email'] && loginForm.controls['email'].touched">
+            Будьласка введіть правильний email
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls['email'].errors?.['required'] && loginForm.controls['email'].touched">
+            Email це <strong>обов'язкове поле</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Пароль</mat-label>
+          <input type="password" matInput
+                placeholder="Введіть ваш пароль" formControlName="password"/>
+          <mat-error *ngIf="loginForm.controls['password'].errors?.['pattern'] && loginForm.controls['password'].touched">
+            Введіть пароль мінімум 8 символів із них мінімум 1 цифра
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].touched">
+            Пароль це <strong>обов'язкове поле</strong>
+          </mat-error>
+        </mat-form-field>
+        <div class="btn-wrapper">
+          <button mat-raised-button type="submit" [disabled]="loginForm.invalid">Війти</button>
+        </div>
+      </form>
+      <div class="sign-up-wrapper">
+        <p>У вас немає акаунту? <a>Створити</a></p>
+      </div>
+
+    </mat-card-content>
+    <mat-card-footer></mat-card-footer>
+  </mat-card>
+</div>
+<!-- [disabled]="loginForm.invalid" -->

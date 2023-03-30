@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { IProducts } from 'src/app/models/products';
 import { Subscription } from 'rxjs';
-import { ProductsService } from 'src/app/services/products.service';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
+import { BasketService } from 'src/app/services/basket.service';
+import { Product } from 'src/app/models/product.model';
+import { StoreService } from 'src/app/services/store.service';
+
+import { OpenDialogService } from 'src/app/services/opendialog.service';
+
+const ROWS_HEIGHT:{[id: number] : number}  = {
+  1: 400,
+  3: 335,
+  4: 350
+};
 
 @Component({
   selector: 'app-products',
@@ -11,93 +18,78 @@ import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  constructor(private ProductsService: ProductsService, public dialog: MatDialog) { }
+  cols = 3;
+  rowHeight = ROWS_HEIGHT[this.cols];
+  category: string | undefined;
+  products: Array<Product> | undefined;
+  sort = 'desc';
+  count = '12';
+  productsSubscription: Subscription | undefined;
+  newItemAddedSubscription: Subscription;
 
-  products: IProducts[] ;
-  productsSubscription: Subscription ;
-  basket: IProducts[] ;
-  basketSubscription: Subscription ;
-
-  canEdit: boolean = false;
+  constructor( private basketService: BasketService , private storeService: StoreService, private openDialogService: OpenDialogService) { }
 
   ngOnInit(): void {
-    this.canEdit = true;
-    this.productsSubscription = this.ProductsService.getProducts().subscribe((data) => {
-      this.products = data;
-    })
-    this.basketSubscription = this.ProductsService.getProductsBasket().subscribe((data) => {
-      this.basket = data;
-    })
-  }
-
-  openDialog(product?: IProducts): void {
-    let dialogConfig = new MatDialogConfig();
-    dialogConfig.width = '500px';
-    dialogConfig.disableClose = true;
-    dialogConfig.data = product;
-    const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe( (data) => {
-      if(data && data.id){
-        this.updateData(data)
-      }else if (data) {
-        this.postData(data)
-      }
-    }
-    );
-  }
-
-  postData(data: IProducts){
-    console.log(data);
-    this.ProductsService.postProduct(data).subscribe((data) => this.products.push(data));
-  }
-
-  updateData(product: IProducts){
-    this.ProductsService.updateProduct(product).subscribe((data) => {
-      this.products = this.products.map((product) => {
-        if(product.id === data.id) return data;
-        else return product;
-      })
+    this.getProducts();
+    this.newItemAddedSubscription = this.openDialogService.newItemAdded$.subscribe((data) => {
+      this.addNewProduct(data);
     });
   }
-
-  deleteItem(id: number){
-    this.ProductsService.deleteProduct(id).subscribe((data) => this.products.find((item) =>{
-      if(id === item.id){
-        let idx = this.products.findIndex((data) => data.id === id);
-        this.products.splice(idx, 1);
+  addNewProduct(product: Product){
+    debugger;
+    if(this.products){
+      let data = this.products?.find(item => item.id === product.id)
+      if(!data){
+        this.products?.unshift(product);
       }
-    }));
-  }
-
-  addToBasket(product: IProducts){
-    product.quantity = 1
-    let findItem;
-
-    if(this.basket.length > 0){
-      findItem = this.basket.find(item => item.id === product.id);
-      if(findItem) this.updateToBasket(findItem)
-      else this.postToBasket(product);
     }
-    else this.postToBasket(product);
+  }
+  getProducts():void{
+    this.productsSubscription = this.storeService.getAllProducts(this.count, this.sort, this.category).subscribe((_product) => {
+      this.products = _product;
+    })
+  }
+  onColumnsCountChange(colsNum: number):void{
+    this.cols = colsNum;
+    this.rowHeight = ROWS_HEIGHT[this.cols];
+  }
+  onShowCategory(newCategory: string):void{
+    this.category = newCategory;
+    this.getProducts();
+  }
+  onAddToCart(product: Product):void{
+    this.basketService.addToCart({
+      product: product.image,
+      name: product.title,
+      price: product.price,
+      quantity: 1,
+      id: product.id
+    })
+  }
+  onRemoveProduct(_product: Product): void {
+    debugger;
+    if(this.products){
+      let idx = this.products.findIndex((data) => data.id === _product.id);
+      this.products.splice(idx, 1);
+    }
   }
 
-  postToBasket(product: IProducts){
-    this.ProductsService.postProductToBasket(product).subscribe((data) =>{
-      this.basket.push(data);
-    });
+  onItemsCountChange(newCount:string): void {
+    this.count = newCount;
+    this.getProducts();
   }
 
-  updateToBasket(product: IProducts){
-    product.quantity +=1;
-    this.ProductsService.updateProductBasket(product).subscribe((data) =>{
-
-      })
+  onSortUpdated(newSort: string): void {
+    this.sort = newSort;
+    this.getProducts();
   }
-
   ngOnDestroy(): void {
-    if(this.productsSubscription) this.productsSubscription.unsubscribe();
-    if(this.basketSubscription) this.basketSubscription.unsubscribe();
+    if(this.productsSubscription){
+      this.productsSubscription.unsubscribe();
+    }
+    if(this.newItemAddedSubscription){
+      this.newItemAddedSubscription.unsubscribe();
+    }
   }
 
 }

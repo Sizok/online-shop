@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { IProducts } from 'src/app/models/products';
+import { Product } from 'src/app/models/product.model';
+import { BasketService } from 'src/app/services/basket.service';
 
 @Component({
   selector: 'app-product-details',
@@ -10,13 +11,23 @@ import { IProducts } from 'src/app/models/products';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: IProducts;
+  product: Product;
   productSubscription: Subscription;
-  constructor(private route: ActivatedRoute) { }
+
+  constructor(private route: ActivatedRoute, private basketService: BasketService) { }
 
   ngOnInit(): void {
     this.productSubscription = this.route.data.subscribe((data) => {
       this.product = data['data'];
+    })
+  }
+  onAddToCard(product: Product):void{
+    this.basketService.addToCart({
+      product: product.image,
+      name: product.title,
+      price: product.price,
+      quantity: 1,
+      id: product.id
     })
   }
 

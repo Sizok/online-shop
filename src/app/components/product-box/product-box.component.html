@@ -1,0 +1,35 @@
+<mat-card *ngIf="product" [ngClass]="{'text-center': !fullWidthMode}">
+  <div [ngClass]="{'flex': fullWidthMode}">
+    <img class="mb-1 mx-auto h-[200px]" [ngClass]="{'h-200px': !fullWidthMode, 'h-[360px]': fullWidthMode}" [src]="product.image"/>
+    <div class="w-full" [ngClass]="{'px-8 flex flex-col justify-between': fullWidthMode}">
+      <div>
+        <h5 class="select-none">{{product.category}}</h5>
+        <p class="truncate hover:whitespace-normal select-none">{{product.title}}</p>
+        <p *ngIf="fullWidthMode">{{product.description}}</p>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-red-400">{{ product.price | currency}}</span>
+        <button mat-raised-button [routerLink]="['/product', product.id]" *ngIf="!isLoggedInned">
+          Детальніше
+        </button>
+        <button (click)="onAddToCard()" *ngIf="!isLoggedInned">
+          <mat-icon class="text-gray-500">add_shopping_cart</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf="isLoggedInned">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onOpenDialog(product)">
+            <mat-icon>edit</mat-icon>
+            <span>Редагувати</span>
+          </button>
+          <button mat-menu-item (click)="onDeleteProduct(product.id)">
+            <mat-icon>delete</mat-icon>
+            <span>Видалити</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</mat-card>
+

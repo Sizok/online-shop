@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IProducts } from 'src/app/models/products';
+import { Cart, CartItem } from 'src/app/models/cart.model';
+import { BasketService } from 'src/app/services/basket.service';
 
-import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-basket',
@@ -10,35 +10,53 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-
-  constructor(
-    private ProductsService: ProductsService
-  ) { }
-  basket: IProducts[];
+  cart: Cart = {items:[{
+    product: 'http://via.placeholder.com/150',
+    name: 'snickers',
+    price: 150,
+    quantity: 1,
+    id: 1
+  },
+  {
+    product: 'http://via.placeholder.com/150',
+    name: 'snickers',
+    price: 150,
+    quantity: 3,
+    id: 2
+  }]}
+  dataSource: Array<CartItem> = [];
+  displayedColumns: Array<string> = [
+    'product',
+    'name',
+    'price',
+    'quantity',
+    'total',
+    'action'
+  ]
+  constructor( private basketService: BasketService) { }
   basketSubscription: Subscription;
   ngOnInit(): void {
-    this.basketSubscription = this.ProductsService.getProductsBasket().subscribe((data) => {
-      this.basket = data;
+    this.basketService.cart.subscribe((_cart: Cart) => {
+      this.cart = _cart;
+      this.dataSource = this.cart.items;
     })
   }
 
-  minusItemBasket(product: IProducts){
-    if(product.quantity === 1){
-      this.ProductsService.removeProductFromBasket(product.id).subscribe(() =>{
-        let inx = this.basket.findIndex(x => x.id === product.id)
-        this.basket.splice(inx, 1);
-      })
-    }else{
-      product.quantity -= 1;
-      this.ProductsService.updateProductBasket(product).subscribe((data) => {
-      console.log(data);
-    })
-    }
-
+  getTotal(items: Array<CartItem>): number {
+    return this.basketService.getTotal(items);
   }
-  plusItemBasket(product: IProducts){
-    product.quantity += 1;
-    this.ProductsService.updateProductBasket(product).subscribe((data) => {})
+  onClearBasket(): void {
+    this.basketService.clearBasket();
+  }
+
+  onRemoveFromBasket(item: CartItem): void {
+    this.basketService.removeFromBasket(item);
+  }
+  onAddQuantity(item:CartItem):void{
+    this.basketService.addToCart(item);
+  }
+  onRemoveQuatity(item:CartItem):void{
+    this.basketService.removeQuantity(item);
   }
 
   ngOnDestroy(): void {
